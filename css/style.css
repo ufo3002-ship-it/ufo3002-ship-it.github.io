@@ -4095,3 +4095,34 @@ body.is-loaded .loader{
 @media (prefers-reduced-motion: reduce) {
   .reveal { transition: none; transform: none; opacity: 1; }
 }
+/* ===== 전화 플로팅 버튼 (모바일에서만) ===== */
+.call-float{
+  position: fixed;
+  right: 16px;
+  bottom: calc(96px + env(safe-area-inset-bottom)); /* 카카오 위 */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.call-float img{
+  width: 34px;
+  height: 34px;
+  display:block;
+}
+
+.call-float:active{
+  transform: scale(0.98);
+}
+
+/* ✅ PC에서는 숨김 */
+@media (min-width: 992px){
+  .call-float{ display: none !important; }
+}
