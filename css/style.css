@@ -3391,6 +3391,119 @@ header.fixed {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
+.inq-success{
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+}
+
+.inq-success-title{
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 900;/* ===== Inquiry Success UI ===== */
+                   .inq-success{
+                     background: #fff;
+                     border-radius: 22px;
+                     box-shadow: 0 18px 60px rgba(0,0,0,0.18);
+                     padding: 28px;
+                   }
+
+                   .inq-success-inner{
+                     max-width: 520px;
+                     margin: 0 auto;
+                     text-align: center;
+                   }
+
+                   .inq-success-icon{
+                     width: 72px;
+                     height: 72px;
+                     margin: 6px auto 14px;
+                     display: grid;
+                     place-items: center;
+                     border-radius: 18px;
+                     background: rgba(195,40,101,0.10);
+                     font-size: 34px;
+                   }
+
+                   .inq-success-title{
+                     margin: 0 0 10px;
+                     font-size: 22px;
+                     font-weight: 800;
+                     color: #111;
+                     letter-spacing: -0.02em;
+                   }
+
+                   .inq-success-desc{
+                     margin: 0 0 18px;
+                     color: #555;
+                     line-height: 1.6;
+                   }
+
+                   .inq-success-actions{
+                     display: flex;
+                     gap: 10px;
+                     justify-content: center;
+                     align-items: center;
+                     flex-wrap: wrap;
+                     margin-bottom: 14px;
+                   }
+
+                   .inq-success-actions .btn-primary,
+                   .inq-success-actions .btn-secondary{
+                     min-width: 160px;
+                     justify-content: center;
+                   }
+
+                   #btnInqAgain.btn-ghost{
+                     display: inline-flex;
+                     align-items: center;
+                     justify-content: center;
+                     height: 44px;
+                     padding: 0 16px;
+                     border-radius: 12px;
+                     border: 1px solid rgba(0,0,0,0.12);
+                     background: transparent;
+                     color: #333;
+                     font-weight: 600;
+                   }
+
+                   #btnInqAgain.btn-ghost:hover{
+                     border-color: rgba(195,40,101,0.35);
+                     color: #c32865;
+                   }
+
+                   /* 모바일에서 버튼 꽉 차게 */
+                   @media (max-width: 480px){
+                     .inq-success-actions{
+                       flex-direction: column;
+                     }
+                     .inq-success-actions .btn-primary,
+                     .inq-success-actions .btn-secondary{
+                       width: 100%;
+                     }
+                   }
+.inq-steps.is-done .inq-step.is-active{
+  background: #22c55e; /* 초록 느낌 */
+  color: #fff;
+}
+
+}
+
+.inq-success-desc{
+  margin: 0 0 16px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.inq-success-actions{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
 
   /* 7) 입력/버튼 터치영역 */
   .inq-control { min-height: 48px; font-size: 16px; } /* iOS 자동 확대 방지용(16px) */
@@ -4118,4 +4231,70 @@ body.is-loaded .loader{
   display:flex;
   align-items:center;
   justify-content:center;
+}
+/* ===== Inquiry Success (force center) ===== */
+#inqSuccess.inq-success{
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#inqSuccess .inq-success-inner{
+  min-height: 320px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.18);
+  padding: 40px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#inqSuccess .inq-success-title{
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 900;
+  color: #111;
+  letter-spacing: -0.03em;
+}
+
+#inqSuccess .inq-success-desc{
+  margin: 0 0 20px;
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+#inqSuccess .inq-success-actions{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+#inqSuccess .inq-success-actions a{
+  min-width: 160px;
+  text-align: center;
+}
+#inqSuccess .inq-success-title::after{
+  content:"";
+  display:block;
+  width: 44px;
+  height: 3px;
+  border-radius: 99px;
+  background: #c32865;
+  margin: 14px auto 0;
+}
+@media (max-width: 480px){
+  #inqSuccess .inq-success-inner{ min-height: 320px; }
+  #inqSuccess .inq-success-actions{ flex-direction: column; width: 100%; }
+  #inqSuccess .inq-success-actions a{ width: 100%; }
 }

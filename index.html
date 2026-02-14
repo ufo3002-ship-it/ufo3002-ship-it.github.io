@@ -32,35 +32,8 @@
 <meta property="og:image" content="https://trickguys.co.kr/images/preview.jpg">
 <meta property="og:url" content="https://trickguys.co.kr">
 <meta property="og:type" content="website">
-  <style>
-  /* 기본 마우스 커서를 숨기고 싶으면 주석 해제 */
-body { cursor: none; }
 
-  .cursor-dot {
-    position: fixed;
-    left: 0; top: 0;
-    width: 10px; height: 10px;
-    border-radius: 999px;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 999999;
-  }
 
-  .cursor-ring {
-    position: fixed;
-    left: 0; top: 0;
-    width: 36px; height: 36px;
-    border-radius: 999px;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 999998;
-    box-sizing: border-box;
-  }
-
-  /* 색/스타일만 여기서 바꾸면 됨 */
-  .cursor-dot { background: rgba(255, 80, 160, 0.95); }
-  .cursor-ring { border: 2px solid rgba(255, 80, 160, 0.45); }
-</style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2K7Z5BLD0J"></script>
   <script>
@@ -187,7 +160,7 @@ body { cursor: none; }
 
     <header class="navbar navbar-fullpage boxed">
       <div class="navbar-bg"></div>
-      <a class="brand" href="#page1">
+      <a class="brand" href="index.html">
         <img alt="" src="images/brand.png">
         <div class="brand-info">
           <div class="brand-name">Trick Guys</div>
@@ -703,7 +676,26 @@ body { cursor: none; }
   </div>
 
 </form>
-</div> <!-- /.inq-panel (data-step="2") -->
+                  <div id="inqSuccess" class="inq-success" style="display:none;">
+                    <div class="inq-success-inner">
+                      <h2 class="inq-success-title">문의가 접수되었습니다</h2>
+                      <p class="inq-success-desc">
+                        빠르게 확인 후 연락드릴게요.<br>
+                        급하시면 아래로 바로 연락 주셔도 됩니다.
+                      </p>
+
+                      <div class="inq-success-actions">
+                        <a class="btn-primary" href="https://open.kakao.com/o/slcrQU2e" target="_blank" rel="noopener">
+                          카카오톡 문의
+                        </a>
+                        <a class="btn-secondary" href="tel:01097600716">전화하기</a>
+                      </div>
+
+                      <button type="button" class="btn-ghost" id="btnInqAgain">새 문의 작성</button>
+                    </div>
+                  </div>
+
+                </div> <!-- /.inq-panel (data-step="2") -->
 </div> <!-- /#inqStepper -->
 </section> <!-- /.inq-card -->
 </main> <!-- /.inq-wrap -->

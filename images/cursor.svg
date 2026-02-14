@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- slim arrow outline -->
+  <path d="M6 4 L6 24 L11 19 L15 28 L18 27 L14 18 L21 18 Z" fill="white" opacity="0.95"></path>
+  <path d="M6 4 L6 24 L11 19 L15 28 L18 27 L14 18 L21 18 Z" fill="none" stroke="#c32865" stroke-width="1.6" stroke-linejoin="round"></path>
+</svg>

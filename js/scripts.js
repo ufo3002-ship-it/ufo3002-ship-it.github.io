@@ -77,11 +77,17 @@
       .css('display','block');
 
     $c.owlCarousel({
-      loop:false,
+      loop:true,
       margin:16,
       nav:false,
       dots:false,
       autoWidth:false,
+
+      autoplay:true,
+      autoplayTimeout:2500,
+      autoplayHoverPause:true,
+      smartSpeed:600,
+
       responsive:{
         0:{ items:1 },
         768:{ items:2 },
@@ -516,6 +522,9 @@ ${c.date}  ${c.startTime}~${c.endTime}
   const payload = { name, phone, email, audioAvail, screenAvail, classSummary, classes };
 
   const submitBtn = document.getElementById('btnSubmitInquiry');
+const successBox = document.getElementById('inqSuccess');
+const againBtn = document.getElementById('btnInqAgain');
+document.querySelector('.inq-steps')?.classList.add('is-done');
 
   // 잠그기
   isSubmitting = true;
@@ -534,8 +543,35 @@ ${c.date}  ${c.startTime}~${c.endTime}
       body: JSON.stringify(payload)
     });
 
-    alert('문의가 접수되었습니다. 빠르게 연락드릴게요.:)');
+    // ✅ alert 대신: 폼 숨기고 성공 박스 보여주기
+    document.getElementById('inqForm')?.style && (document.getElementById('inqForm').style.display = 'none');
+    if (successBox) {
+      successBox.style.display = '';
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     if (submitBtn) submitBtn.textContent = '접수 완료';
+
+    // 새 문의 작성 버튼
+    againBtn?.addEventListener('click', () => {
+      // 폼 초기화 + 다시 보여주기
+      document.getElementById('inqForm')?.reset();
+      document.getElementById('inqForm').style.display = '';
+      if (successBox) successBox.style.display = 'none';
+
+      // 수업 목록/단계도 초기화하고 싶으면(선택)
+      classes = [];
+      renderClassList();
+      setStep(1);
+
+      // 버튼 원복
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtn.dataset.originalText || '제출';
+      }
+      isSubmitting = false;
+    });
+
 
   } catch (err) {
     console.error(err);
@@ -599,8 +635,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-document.addEventListener("click", function(e){
-  const link = e.target.closest(".menu-list a[href^='#']");
-  if(!link) return;
-  document.body.classList.remove("menu-is-opened");
-});
+
+window.addEventListener("pointermove", (e) => {
+  mx = e.clientX;
+  my = e.clientY;
+
+  const clickable = e.target.closest("a, button, [role='button'], .btn-primary, .btn-secondary, input[type='submit']");
+  const scale = clickable ? 1.45 : 1;
+
+  if (dot)  dot.style.transform  = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+  if (ring) ring.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%) scale(${scale})`;
+}, { passive: true });
