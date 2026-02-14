@@ -562,3 +562,30 @@ ${c.date}  ${c.startTime}~${c.endTime}
 
   targets.forEach(el => io.observe(el));
 })();
+// ===============================
+// Navbar Hamburger Toggle
+// ===============================
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.querySelector(".navbar-toggle");
+  const closeBtn = document.querySelector(".close-menu");
+  const body = document.body;
+  const clickCapture = document.querySelector(".click-capture");
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function () {
+      body.classList.add("menu-is-opened");
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      body.classList.remove("menu-is-opened");
+    });
+  }
+
+  if (clickCapture) {
+    clickCapture.addEventListener("click", function () {
+      body.classList.remove("menu-is-opened");
+    });
+  }
+});

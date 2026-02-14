@@ -2163,7 +2163,9 @@ a.brand:focus{
   opacity: 0.85;
   margin-top: 8px;
 }
-
+.hero-title{
+  white-space: nowrap;
+}
 
 
 
