@@ -485,15 +485,23 @@ if (!audioAvail || !screenAvail) {
   }
 
   // 수업 요약(시트 한 칸에 들어가도록 텍스트로)
- const equipSummary = `음향: ${audioAvail} / 스크린: ${screenAvail}`;
+const equipSummary = `음향: ${audioAvail} / 스크린: ${screenAvail}`;
 
 const classSummary =
-  equipSummary + '\n' +
+  `【장비 여부】
+${equipSummary}
+
+` +
   classes.map((c, i) => {
     const venueLabel = (c.venueType === '기타' ? c.venueEtc : c.venueType);
-    return `${i + 1}) ${c.school} / ${c.sido} ${c.sigungu} / ${c.grade} / ${c.classCount}학급 / ${c.program} / ${c.session} / ${c.date} / ${venueLabel}(${c.venueFloor})`;
-  }).join('\n') + (memo ? `\n\n[추가 요청]\n${memo}` : '');
 
+    return `■ ${i + 1}차시
+${c.school} (${c.sido} ${c.sigungu})
+${c.grade} / ${c.classCount}학급 / ${c.program} / ${c.session}
+${c.date}  ${c.startTime}~${c.endTime}
+장소: ${venueLabel} (${c.venueFloor})`;
+  }).join('\n\n') +
+  (memo ? `\n\n【추가 요청 사항】\n${memo}` : '');
 
   const payload = { name, phone, email, audioAvail, screenAvail, classSummary, classes };
 
