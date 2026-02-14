@@ -516,7 +516,7 @@ const classSummary =
       body: JSON.stringify(payload)
     });
 
-    alert('문의가 접수되었습니다. 빠르게 연락드릴게요.');
+    alert('문의가 접수되었습니다. 빠르게 연락드릴게요.:)');
     if (submitBtn) submitBtn.textContent = '접수 완료';
 
   } catch (err) {
