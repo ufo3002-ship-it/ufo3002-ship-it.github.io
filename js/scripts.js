@@ -535,3 +535,22 @@ const classSummary =
 
 })();
 
+// ===== Scroll reveal (IntersectionObserver) =====
+(function () {
+  const targets = document.querySelectorAll(
+    '.section, .project-box, .testimonial, .card, .poster-card, .resume-item'
+  );
+
+  targets.forEach(el => el.classList.add('reveal'));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target); // 1회만
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+  targets.forEach(el => io.observe(el));
+})();
