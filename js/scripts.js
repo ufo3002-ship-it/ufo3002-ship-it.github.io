@@ -589,3 +589,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+document.addEventListener("click", function(e){
+  const link = e.target.closest(".menu-list a[href^='#']");
+  if(!link) return;
+  document.body.classList.remove("menu-is-opened");
+});
