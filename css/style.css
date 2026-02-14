@@ -4114,4 +4114,8 @@ body.is-loaded .loader{
   height: 90px;
   object-fit: contain;
 }
-
+.float-dock .float-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

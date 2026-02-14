@@ -437,13 +437,23 @@ btnAddClass?.addEventListener('click', () => {
   renderClassList();
 });
 
-  // -------------------
-  // Step navigation
-  // -------------------
-  btnNext?.addEventListener('click', () => setStep(2));
-  btnBackTo1?.addEventListener('click', () => setStep(1));
-  btnGoStep3?.addEventListener('click', () => setStep(2));
-  btnBackTo2?.addEventListener('click', () => setStep(2));
+ // -------------------
+ // Step navigation (2-step only)
+ // -------------------
+ btnNext?.addEventListener('click', () => {
+   // 수업이 하나도 없으면: 지금 입력값으로 자동 1회 '수업 추가'
+   if (!classes || classes.length === 0) {
+     const v = getStep1Values();
+     if (!validateStep1(v)) return;
+
+     classes.push(v);
+     renderClassList();
+   }
+
+   // 그리고 Step2로 이동
+   setStep(2);
+ });
+
    // -------------------
 // Submit (Step 3)
 // -------------------
