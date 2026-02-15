@@ -4298,3 +4298,46 @@ body.is-loaded .loader{
   #inqSuccess .inq-success-actions{ flex-direction: column; width: 100%; }
   #inqSuccess .inq-success-actions a{ width: 100%; }
 }
+/* ===== 선생님 후기: 줄바꿈/가독성 최적화 ===== */
+.review-block .quote{
+  /* 카드 폭이 기기마다 들쭉날쭉하지 않게 */
+  max-width: 860px;
+  margin: 0 auto 18px;
+}
+
+.review-block .quote blockquote{
+  /* ✅ 한글 줄바꿈 안정화 핵심 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+
+  /* ✅ 기기별 폰트 차이 완화 */
+  font-size: clamp(15px, 3.9vw, 18px);
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+
+  /* ✅ 줄 길이(한 줄 글자수) 고정해서 줄수 흔들림 줄이기 */
+  max-width: 22em;
+  margin: 0 auto;
+
+  /* 최신 브라우저면 더 보기 좋게(지원 안되면 무시됨) */
+  text-wrap: pretty;
+}
+
+.review-block .quote figcaption{
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-align: left;
+  max-width: 22em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ✅ 오른쪽 플로팅(카톡/전화)과 겹침 방지 */
+.review-block{
+  padding-right: 92px;
+}
+@media (max-width: 480px){
+  .review-block{ padding-right: 84px; }
+}
