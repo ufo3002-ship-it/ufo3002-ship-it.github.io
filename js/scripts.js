@@ -340,6 +340,7 @@ endEl?.addEventListener('input', () => { lastAutoApplied = false; clearTimeError
     school: document.querySelector('input[placeholder="학교 이름을 입력해주세요"]')?.value.trim() || '',
     grade: document.querySelectorAll('select.inq-control')[2]?.value || '',
     classCount: document.querySelector('input[type="number"]')?.value || '',
+    headCount: document.getElementById('headCount')?.value || '',  
     program: document.querySelectorAll('select.inq-control')[3]?.value || '',
     session: document.querySelectorAll('select.inq-control')[4]?.value || '',
     date: document.querySelector('input[type="date"]')?.value || '',
@@ -409,7 +410,7 @@ if (v.venueType === '기타' && !v.venueEtc) { alert('기타 장소명을 입력
           ${c.school} <span class="muted">(${c.sido} ${c.sigungu})</span>
         </div>
         <div class="line2">
-          ${c.grade} · ${c.classCount}학급 · ${c.program} · ${c.session}차시 · ${c.date} · ${c.startTime}~${c.endTime}
+          ${c.grade} · ${c.classCount}학급${c.headCount ? ` · ${c.headCount}명` : ''} · ${c.program} · ${c.session}차시 · ${c.date} · ${c.startTime}~${c.endTime}
         </div>
       </div>
     `;
@@ -513,7 +514,7 @@ ${equipSummary}
 
     return `■ ${i + 1}차시
 ${c.school} (${c.sido} ${c.sigungu})
-${c.grade} / ${c.classCount}학급 / ${c.program} / ${c.session}
+${c.grade} / ${c.classCount}학급${c.headCount ? ` / ${c.headCount}명` : ''} / ${c.program} / ${c.session}
 ${c.date}  ${c.startTime}~${c.endTime}
 장소: ${venueLabel} (${c.venueFloor})`;
   }).join('\n\n') +
