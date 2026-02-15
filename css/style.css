@@ -4334,13 +4334,7 @@ body.is-loaded .loader{
   margin-right: auto;
 }
 
-/* ✅ 오른쪽 플로팅(카톡/전화)과 겹침 방지 */
-.review-block{
-  padding-right: 92px;
-}
-@media (max-width: 480px){
-  .review-block{ padding-right: 84px; }
-}
+
 .float-top{
   position: fixed;
   right: 20px;
