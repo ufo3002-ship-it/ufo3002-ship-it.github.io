@@ -647,3 +647,21 @@ window.addEventListener("pointermove", (e) => {
   if (dot)  dot.style.transform  = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
   if (ring) ring.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%) scale(${scale})`;
 }, { passive: true });
+document.addEventListener("click", function(e){
+  const link = e.target.closest(".menu-list a[href^='#']");
+  if(!link) return;
+  document.body.classList.remove("menu-is-opened");
+});
+
+window.addEventListener("scroll", function(){
+  const btn = document.querySelector(".float-top");
+  if(!btn) return;
+
+  if(window.scrollY > window.innerHeight * 0.5){
+    btn.classList.add("show");
+  } else {
+    btn.classList.remove("show");
+  }
+});
+
+$.fn.pagepiling.moveTo(1);
