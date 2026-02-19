@@ -112,13 +112,12 @@
 
     <div class="float-dock">
 
-      <a href="https://open.kakao.com/o/slcrQU2e"
-         class="float-btn kakao-float"
-         target="_blank"
-         rel="noopener"
-         aria-label="카카오톡 문의하기">
-        <img src="images/icon-kakao.png" alt="">
-      </a>
+      <a href="javascript:void(0)"
+   class="float-btn kakao-float"
+   id="btnAddChannel"
+   aria-label="카카오 채널 추가하기">
+  <img src="images/icon-kakao.png" alt="">
+</a>
 
       <a href="tel:01097600716"
          class="float-btn call-float"
@@ -692,7 +691,7 @@
                       </p>
 
                       <div class="inq-success-actions">
-                        <a class="btn-primary" href="https://open.kakao.com/o/slcrQU2e" target="_blank" rel="noopener">
+                        <a class="btn-primary" href="https://pf.kakao.com/_axmuIX" target="_blank" rel="noopener">
                           카카오톡 문의
                         </a>
                         <a class="btn-secondary" href="tel:01097600716">전화하기</a>
@@ -817,6 +816,17 @@
 
 </script>
 
+<script src="https://pf.kakao.com/_axmuIX"></script>
+
+<script>
+  Kakao.init("9f62215095f7dfb803310209fbda4fd4");
+
+  document.getElementById('btnAddChannel').addEventListener('click', function () {
+    Kakao.Channel.addChannel({
+      channelPublicId: '_axmuIX'
+    });
+  });
+</script>
 
 </body>
 </html>

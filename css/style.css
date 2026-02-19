@@ -4150,12 +4150,7 @@ body.is-loaded .loader{
   width: 42px;
   height: 42px;
 }
-/* =========================
-   Floating Dock (single source of truth)
-   ========================= */
-@media (min-width: 992px){
-  .float-dock{ display:none !important; }
-}
+
 
 .float-dock{
   position: fixed;
@@ -4374,5 +4369,43 @@ body.is-loaded .loader{
   .hero-title{
     font-size: 28px;
     line-height: 1.3;
+  }
+}
+
+/* =========================
+   PC: 선생님 후기(quote) 크게
+========================= */
+@media (min-width: 992px){
+  .quote-list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2열 */
+    gap: 28px;
+    align-items: start;
+  }
+
+  .quote{
+    width: 100%;
+    max-width: none;
+  }
+
+  .quote blockquote{
+    width: 100%;          /* 기존 80% 같은 제한 무력화 */
+    padding-left: 2.4rem; /* 기존 6.8rem 너무 과하면 축소 */
+    font-size: 1.25rem;   /* 텍스트 크게 */
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .quote figcaption{
+    font-size: 1rem;
+    margin-top: 14px;
+    opacity: .9;
+  }
+}
+
+/* 아주 큰 화면(선택): 3열로 */
+@media (min-width: 1400px){
+  .quote-list{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
