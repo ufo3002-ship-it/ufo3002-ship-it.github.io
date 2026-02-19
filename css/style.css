@@ -4359,3 +4359,20 @@ body.is-loaded .loader{
   opacity: 1;
   pointer-events: auto;
 }
+
+/* 기본: 웹에서는 줄바꿈 안 보이게 */
+.m-br{
+  display: none;
+}
+
+/* 모바일에서만 줄바꿈 활성화 */
+@media (max-width: 768px){
+  .m-br{
+    display: inline;
+  }
+
+  .hero-title{
+    font-size: 28px;
+    line-height: 1.3;
+  }
+}
