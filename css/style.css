@@ -4150,12 +4150,7 @@ body.is-loaded .loader{
   width: 42px;
   height: 42px;
 }
-/* =========================
-   Floating Dock (single source of truth)
-   ========================= */
-@media (min-width: 992px){
-  .float-dock{ display:none !important; }
-}
+
 
 .float-dock{
   position: fixed;
@@ -4297,4 +4292,120 @@ body.is-loaded .loader{
   #inqSuccess .inq-success-inner{ min-height: 320px; }
   #inqSuccess .inq-success-actions{ flex-direction: column; width: 100%; }
   #inqSuccess .inq-success-actions a{ width: 100%; }
+}
+/* ===== 선생님 후기: 줄바꿈/가독성 최적화 ===== */
+.review-block .quote{
+  /* 카드 폭이 기기마다 들쭉날쭉하지 않게 */
+  max-width: 860px;
+  margin: 0 auto 18px;
+}
+
+.review-block .quote blockquote{
+  /* ✅ 한글 줄바꿈 안정화 핵심 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+
+  /* ✅ 기기별 폰트 차이 완화 */
+  font-size: clamp(15px, 3.9vw, 18px);
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+
+  /* ✅ 줄 길이(한 줄 글자수) 고정해서 줄수 흔들림 줄이기 */
+  max-width: 22em;
+  margin: 0 auto;
+
+  /* 최신 브라우저면 더 보기 좋게(지원 안되면 무시됨) */
+  text-wrap: pretty;
+}
+
+.review-block .quote figcaption{
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-align: left;
+  max-width: 22em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.float-top{
+  position: fixed;
+  right: 20px;
+  bottom: 160px;   /* 카톡/전화 위에 배치 */
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.float-top.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 기본: 웹에서는 줄바꿈 안 보이게 */
+.m-br{
+  display: none;
+}
+
+/* 모바일에서만 줄바꿈 활성화 */
+@media (max-width: 768px){
+  .m-br{
+    display: inline;
+  }
+
+  .hero-title{
+    font-size: 28px;
+    line-height: 1.3;
+  }
+}
+
+/* =========================
+   PC: 선생님 후기(quote) 크게
+========================= */
+@media (min-width: 992px){
+  .quote-list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2열 */
+    gap: 28px;
+    align-items: start;
+  }
+
+  .quote{
+    width: 100%;
+    max-width: none;
+  }
+
+  .quote blockquote{
+    width: 100%;          /* 기존 80% 같은 제한 무력화 */
+    padding-left: 2.4rem; /* 기존 6.8rem 너무 과하면 축소 */
+    font-size: 1.25rem;   /* 텍스트 크게 */
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .quote figcaption{
+    font-size: 1rem;
+    margin-top: 14px;
+    opacity: .9;
+  }
+}
+
+/* 아주 큰 화면(선택): 3열로 */
+@media (min-width: 1400px){
+  .quote-list{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

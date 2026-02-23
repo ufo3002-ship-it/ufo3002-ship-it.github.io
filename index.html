@@ -112,20 +112,20 @@
 
     <div class="float-dock">
 
-      <a href="https://open.kakao.com/o/slcrQU2e"
-         class="float-btn kakao-float"
-         target="_blank"
-         rel="noopener"
-         aria-label="카카오톡 문의하기">
-        <img src="images/icon-kakao.png" alt="">
-      </a>
+      <a href="javascript:void(0)"
+   class="float-btn kakao-float"
+   id="btnAddChannel"
+   aria-label="카카오 채널 추가하기">
+  <img src="images/icon-kakao.png" alt="">
+</a>
 
       <a href="tel:01097600716"
          class="float-btn call-float"
          aria-label="전화 문의하기">
         <img src="images/icon-phone.png" alt="">
       </a>
-
+  <a href="#page1" class="float-top" aria-label="맨 위로 이동">↑</a>
+  
     </div>
 
 
@@ -199,7 +199,7 @@
  <div class="row">
   <div class="col-lg-8">
  <h1 class="hero-title">
-  <span class="hero-accent">마술</span>을 통해 교육적인
+  <span class="hero-accent">마술</span>을 통해 교육적인<span class="m-br"><br></span>
   <span class="hero-highlight">메시지를</span> 남깁니다
 </h1>
 
@@ -341,7 +341,6 @@
                 <div class="col-12 col-md-4 mb-4">
                   <a class="poster-card d-block" href="project-balloonshow.html">
                     <img class="w-100" src="images/posters/poster-balloonshow.jpg" alt="풍선나라 마술여행 포스터">
-<div class="poster-hover">자세히 보기 →</div>
                     <div class="poster-meta">
                       <div class="poster-title">풍선나라 마술여행</div>
                       <div class="poster-sub">신나는 매직 벌룬쇼</div>
@@ -352,7 +351,6 @@
                 <div class="col-12 col-md-4 mb-4">
                   <a class="poster-card d-block" href="project-bcd.html">
                     <img class="w-100" src="images/posters/poster-bcd.jpg" alt="B.C.D 포스터">
-<div class="poster-hover">자세히 보기 →</div>
                     <div class="poster-meta">
                       <div class="poster-title">B.C.D</div>
                       <div class="poster-sub">중·고등 진로매직콘서트</div>
@@ -363,7 +361,6 @@
                 <div class="col-12 col-md-4 mb-4">
                   <a class="poster-card d-block" href="project-blooming.html">
                     <img class="w-100" src="images/posters/poster-blooming.jpg" alt="블루밍드림 포스터">
-<div class="poster-hover">자세히 보기 →</div>
                     <div class="poster-meta">
                       <div class="poster-title">블루밍드림</div>
                       <div class="poster-sub">초등 진로교육 프로그램</div>
@@ -530,8 +527,15 @@
       <label class="inq-label">학급수 <span class="req">*</span></label>
       <input class="inq-control" id="classCount" type="number" placeholder="학급 수 입력" required>
     </div>
+
+    <div class="inq-field" style="margin-top:12px;">
+  <label class="inq-label">인원수(예상)</label>
+  <input class="inq-control" id="headCount" type="number" placeholder="예: 120">
+</div>
+
   </div>
 </div>
+
 
 
   <!-- 프로그램 -->
@@ -687,7 +691,7 @@
                       </p>
 
                       <div class="inq-success-actions">
-                        <a class="btn-primary" href="https://open.kakao.com/o/slcrQU2e" target="_blank" rel="noopener">
+                        <a class="btn-primary" href="https://pf.kakao.com/_axmuIX" target="_blank" rel="noopener">
                           카카오톡 문의
                         </a>
                         <a class="btn-secondary" href="tel:01097600716">전화하기</a>
@@ -812,6 +816,17 @@
 
 </script>
 
+<script src="https://pf.kakao.com/_axmuIX"></script>
+
+<script>
+  Kakao.init("9f62215095f7dfb803310209fbda4fd4");
+
+  document.getElementById('btnAddChannel').addEventListener('click', function () {
+    Kakao.Channel.addChannel({
+      channelPublicId: '_axmuIX'
+    });
+  });
+</script>
 
 </body>
 </html>
