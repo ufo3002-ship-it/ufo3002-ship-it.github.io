@@ -112,12 +112,12 @@
 
     <div class="float-dock">
 
-      <a href="javascript:void(0)"
-   class="float-btn kakao-float"
-   id="btnAddChannel"
-   aria-label="카카오 채널 추가하기">
-  <img src="images/icon-kakao.png" alt="">
-</a>
+      <a href="https://pf.kakao.com/_axmuIX/chat"
+         class="float-btn kakao-float"
+         aria-label="카카오톡 문의하기"
+         target="_blank" rel="noopener">
+        <img src="images/icon-kakao.png" alt="">
+      </a>
 
       <a href="tel:01097600716"
          class="float-btn call-float"
@@ -195,51 +195,35 @@
                 <div class="boxed">
                   <div class="container">
                     <div class="intro">
-                    
- <div class="row">
-  <div class="col-lg-8">
- <h1 class="hero-title">
-  <span class="hero-accent">마술</span>을 통해 교육적인<span class="m-br"><br></span>
-  <span class="hero-highlight">메시지를</span> 남깁니다
-</h1>
 
-<p class="hero-tagline">
-  매직케이터(Magician + Educator) 박한울
-</p>
+                      <div class="row">
+                        <div class="col-lg-8">
+                          <div class="hero-card">
+                            <h1 class="hero-title">
+                              <span class="hero-accent">마술</span>을 통해 교육적인<span class="m-br"><br></span>
+                              <span class="hero-highlight">메시지를</span> 남깁니다
+                            </h1>
 
-<div class="hero-cta">
-  <a href="#page8" class="btn-primary">🎯 공연 문의하기</a>
+                            <p class="hero-tagline">
+                              매직케이터(Magician + Educator) 박한울
+                            </p>
 
-  <a href="https://blog.naver.com/magicianp"
-     class="btn-secondary"
-     target="_blank"
-     rel="noopener">
-    📝 블로그 보기
-  </a>
-</div>
+                            <div class="hero-cta">
+                              <a href="#page8" class="btn-primary">🎯 공연 문의하기</a>
+                              <a href="https://blog.naver.com/magicianp"
+                                 class="btn-secondary" target="_blank" rel="noopener">📝 블로그 보기</a>
+                            </div>
 
-
-<div class="hero-video">
-  <div class="hero-video-frame">
-    <video
-      class="hero-video-el"
-      src="videos/intro.mp4"
-      controls
-      playsinline
-      preload="auto"
-      poster="images/hero/video-poster.jpg"
-    ></video>
-  </div>
-
-
-  <div class="hero-video-note">
-    *소리가 안 들리면 🔊(음소거 해제) 눌러주세요.
-  </div>
-</div>
-    
-  </div>
-</div>
-
+                            <div class="hero-video">
+                              <div class="hero-video-frame">
+                                <video class="hero-video-el" src="videos/intro.mp4" controls playsinline preload="auto"
+                                       poster="images/hero/video-poster.jpg"></video>
+                              </div>
+                              <div class="hero-video-note">*소리가 안 들리면 🔊(음소거 해제) 눌러주세요.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                     </div>
                   </div>
@@ -818,14 +802,18 @@
 
 <script src="https://pf.kakao.com/_axmuIX"></script>
 
+<!-- Kakao JavaScript SDK (반드시 이걸로) -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 <script>
   Kakao.init("9f62215095f7dfb803310209fbda4fd4");
 
-  document.getElementById('btnAddChannel').addEventListener('click', function () {
-    Kakao.Channel.addChannel({
-      channelPublicId: '_axmuIX'
+  const btn = document.getElementById('btnAddChannel');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      Kakao.Channel.addChannel({ channelPublicId: '_axmuIX' });
     });
-  });
+  }
 </script>
 
 </body>
