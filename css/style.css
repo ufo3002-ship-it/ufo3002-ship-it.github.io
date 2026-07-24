@@ -4409,3 +4409,22 @@ body.is-loaded .loader{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+.menu-divider {
+  height: 1px;
+  margin-top: 2.7rem !important;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-list > li.privacy-menu-item {
+  margin-top: 1.6rem;
+}
+
+.privacy-menu-item a {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #7e7e7e;
+}
+
+.privacy-menu-item a:hover {
+  color: #fff;
+}
